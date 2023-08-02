@@ -2,7 +2,9 @@
 > *Author: [Benjamin Roland](https://www.github.com/parici75)*
 
 
-This repository contains the setup, configuration and `make` targets to set up a repeatable Python development environment with Poetry.
+This repository contains the backbone, configuration and `make` targets to set up a repeatable Python development environment with Poetry.
+
+For additional context, read the accompanying [blog post](https://benjaminroland.onrender.com/blog/migrating-to-poetry).
 
 ## 🚦 Requirements
 Make sure you have Poetry installed on your system (see [instruction](https://python-poetry.org/docs/#installing-with-the-official-installer)).
@@ -15,8 +17,10 @@ make init
 ## 👷 CI/CD tools we use
 - 🚀 Package management tool: [Poetry](https://python-poetry.org/docs/)
 - 🎭 Code formatting: [Black](https://black.readthedocs.io/en/stable/index.html) and [isort](https://pycqa.github.io/isort/index.html) to tidy code and imports.
-- ✅ Code quality: [mypy](https://mypy.readthedocs.io/en/stable/), [Ruff](https://beta.ruff.rs/docs/), [pre-commit](https://pre-commit.com/)
+- ✅ Code quality: [mypy](https://mypy.readthedocs.io/en/stable/), [Ruff](https://beta.ruff.rs/docs/)
 - 🧪 Tests: [pytest](https://docs.pytest.org/en/latest/)
+- 📤 [pre-commit](https://pre-commit.com/) hooks
+
 
 All tools configurations are gathered on a single `pyproject.toml` TOML file.
 
@@ -37,7 +41,7 @@ We use :
 ## 📝 Documentation
 The template ships with a pre-built documentation structure for [Sphinx](https://www.sphinx-doc.org/en/master/), with [Autodoc](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) extension and the neat [Furo](https://github.com/pradyunsg/furo) them. Use the `update-doc` make target to populate documentation source, and adapt the `index.rst` and `conf.py` files as needed.
 
-Use a GitHub [Action](https://github.com/peaceiris/actions-gh-pages) to deploy the documentation on GitHub Pages.
+Use a [GitHub Action](https://github.com/peaceiris/actions-gh-pages) to deploy the documentation on GitHub Pages (see example [here](https://github.com/Parici75/statsplotly/blob/main/.github/workflows/sphinx.yml)).
 
 
 ## 🔩 Dissecting Makefile
@@ -52,6 +56,7 @@ The Makefile provides several targets to assist in development and code quality 
 ## 🚛 Adapting this template
 - Python version and dependencies are listed in and can be added to the `pyproject.toml` file.
 - For application deployment, add [dockerization](https://github.com/orgs/python-poetry/discussions/1879#).
+- Poetry exposes [methods](https://python-poetry.org/docs/cli/#publish) for struggleless publishing of your package on [PyPi](https://pypi.org/).
 - For CI/CD, GitHub Actions need to be set up to check commits and trigger different build (see example [here](https://github.com/Parici75/statsplotly/tree/main/.github/workflows)).
 
 
