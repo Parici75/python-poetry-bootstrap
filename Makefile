@@ -26,6 +26,7 @@ endif
 	@echo "💡 Using Python $(PYTHON_SHELL_VERSION)"
 	@poetry config virtualenvs.in-project true
 	@poetry config virtualenvs.create true
+	@poetry self add "poetry-dynamic-versioning[plugin]"
 	@poetry install
 
 	pre-commit
