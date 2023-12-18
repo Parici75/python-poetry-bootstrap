@@ -4,7 +4,7 @@
 
 This repository contains the backbone, configuration and `make` targets to set up a repeatable Python development environment with Poetry.
 
-For additional context, read the accompanying [blog post](https://benjaminroland.onrender.com/blog/migrating-to-poetry).
+For additional context, read the accompanying [blog post](https://benjaminroland.onrender.com/coding&data/migrating-to-poetry).
 
 ## 🚦 Requirements
 Make sure you have Poetry installed on your system (see [instruction](https://python-poetry.org/docs/#installing-with-the-official-installer)).
@@ -47,18 +47,18 @@ Use a [GitHub Action](https://github.com/peaceiris/actions-gh-pages) to deploy t
 ## 🔩 Dissecting Makefile
 The Makefile provides several targets to assist in development and code quality :
 - `init` creates a project-specific virtual environment and installs the dependencies of the `.lock` file, if present (see [here](https://python-poetry.org/docs/basic-usage/#installing-dependencies) for an intro on Poetry `.lock` file).
-- `ci` launches Black, Ruff, mypy and pytest on your source code.
+- `ci` launches black, ruff, mypy and pytest on your source code.
 - `pre-commit` set up and/or update pre-commit hooks (see pre-commit [documentation](https://pre-commit.com/)) and run them on all your *staged* files.
 - `update-doc` and `build-doc` updates and builds your documentation with [Sphinx](https://www.sphinx-doc.org/en/master/) for local previsualisation.
 - `clean` clears bytecode, poetry/pip caches, and pre-commit hooks. Use with caution.
 
 
-## 🚛 Adapting this template
-- Python version and dependencies are listed in and can be added to the `pyproject.toml` file.
+## 🚛 Adapting and Extending this template
+- Python version and dependencies are listed in and can be added to the `pyproject.toml` file manually or with the `poetry add` [command](https://python-poetry.org/docs/cli/#add)
 - For application deployment, add [dockerization](https://github.com/orgs/python-poetry/discussions/1879#).
 - Poetry exposes [methods](https://python-poetry.org/docs/cli/#publish) for struggleless publishing of your package on [PyPi](https://pypi.org/).
 - For CI/CD, GitHub Actions need to be set up to check commits and trigger different build (see example [here](https://github.com/Parici75/statsplotly/tree/main/.github/workflows)).
 
 
 ## Credits
-This template is heavily inspired by [Cepedus](https://www.github.com/cepedus) [Poetry-FastAPI bootstrap template](https://github.com/cepedus/python-app-bootstrap)
+This template is heavily inspired by [Cepedus](https://www.github.com/cepedus) [Poetry-FastAPI bootstrap template](https://github.com/cepedus/python-app-bootstrap).
