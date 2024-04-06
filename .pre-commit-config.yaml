@@ -22,21 +22,21 @@ repos:
 
 # Pyupgrade
 - repo: https://github.com/asottile/pyupgrade
-  rev: v3.15.0
+  rev: v3.15.2
   hooks:
       - id: pyupgrade
 
 # Ruff
 # We put this hook before Black hook, as autofix results may need to be reformatted by Black linter
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.8
+    rev: v0.3.5
     hooks:
     -   id: ruff
         args: [ --fix, --exit-non-zero-on-fix ]
         exclude: ^(tests|docs)/
 # Black
 -   repo: https://github.com/psf/black
-    rev: 23.12.0
+    rev: 24.3.0
     hooks:
     -   id: black
 # Isort
@@ -47,7 +47,7 @@ repos:
         exclude: ^.*/?setup\.py$
 # MyPy
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.7.1  # Use the sha / tag you want to point at
+    rev: v1.9.0  # Use the sha / tag you want to point at
     hooks:
     -   id: mypy
         args: [--ignore-missing-imports]

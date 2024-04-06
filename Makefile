@@ -52,6 +52,10 @@ test:
 
 ci: lint typecheck test
 
+coverage:
+	@poetry run coverage run -m pytest
+	@poetry run coverage report
+
 # Pre-commit hooks
 set-pre-commit:
 	@echo "Setting up pre-commit hooks..."

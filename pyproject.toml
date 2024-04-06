@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python-app"
+name = "python-project"
 version = "0.0.0"
 description = ""
 authors = ["Benjamin Roland <benjamin.roland@hotmail.fr>"]
@@ -12,19 +12,21 @@ documentation = "https://github.com/Parici75/python-poetry-bootstrap"
 python = "3.11.5"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"
-mypy = "^1.7.1"
-ruff = "^0.1.8"
-black = "^23.12.0"
+pytest = "^8.0.2"
+mypy = "^1.8.0"
+black = "^24.2.0"
+ruff = "^0.3.5"
 isort = "^5.13.2"
-pyupgrade = "^3.15.0"
-pre-commit = "^3.6"
-pyclean = "^2.7.6"
+pyupgrade = "^3.15.1"
+pre-commit = "^3.6.2"
+pyclean = "^2.7.3"
+coverage = "^7.4.4"
 
 [tool.poetry.group.docs]
 [tool.poetry.group.docs.dependencies]
 sphinx = "^7.2.6"
-furo = "^2023.09.10"
+m2r2 = "^0.3.3"
+furo = "^2023.5.20"
 myst-parser = "^2.0.0"
 
 [tool.poetry-dynamic-versioning]
@@ -40,12 +42,13 @@ build-backend = "poetry_dynamic_versioning.backend"
 ## Tools
 [tool.black]
 target-version = ['py311']
-line_length = 100
+line-length = 100
 preview = true
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+[tool.ruff.lint]
 select = [
     "E",  # pycodestyle errors
     "W",  # pycodestyle warnings
@@ -71,29 +74,28 @@ profile = "black"
 sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
 
 [tool.mypy]
+python_version = "3.11"
 exclude = ["tests"]
 
-# Strict guidelines taken from https://github.com/pytorch/pytorch/blob/master/mypy-strict.ini
 cache_dir = ".mypy_cache/strict"
-strict_optional = true
-hide_error_codes = false
+show_error_codes = true
 show_column_numbers = true
-warn_no_return = true
-disallow_any_unimported = true
 
+# Strict guidelines taken from https://github.com/pytorch/pytorch/blob/master/mypy-strict.ini
 # Across versions of mypy, the flags toggled by --strict vary.  To ensure
 # we have reproducible type check, we instead manually specify the flags
-warn_unused_configs = true
+follow_imports = "normal"
+warn_no_return = true
+warn_return_any = true
+disallow_any_unimported = true
 disallow_any_generics = true
 disallow_subclassing_any = true
 disallow_untyped_calls = true
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
-check_untyped_defs = true
 disallow_untyped_decorators = true
-no_implicit_optional = true
 warn_redundant_casts = true
-warn_return_any = true
+warn_unused_ignores = true
 implicit_reexport = false
 strict_equality = true
 
