@@ -49,6 +49,7 @@ The Makefile provides several targets to assist in development and code quality 
 - `init` creates a project-specific virtual environment and installs the dependencies of the `.lock` file, if present (see [here](https://python-poetry.org/docs/basic-usage/#installing-dependencies) for an intro on Poetry `.lock` file).
 - `ci` launches black, ruff, mypy and pytest on your source code.
 - `pre-commit` set up and/or update pre-commit hooks (see pre-commit [documentation](https://pre-commit.com/)) and run them on all your *staged* files.
+- `coverage` run tests under coverage and produces a [coverage report](https://coverage.readthedocs.io/en/7.5.0/).
 - `update-doc` and `build-doc` updates and builds your documentation with [Sphinx](https://www.sphinx-doc.org/en/master/) for local previsualisation.
 - `clean` clears bytecode, poetry/pip caches, and pre-commit hooks. Use with caution.
 

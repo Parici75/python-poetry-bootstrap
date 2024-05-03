@@ -4,13 +4,14 @@
    contain the root `toctree` directive.
 
 Project documentation
-========================
+=====================
 
 .. include:: ../README.md
-   :parser: markdown
+   :parser: myst_parser.sphinx_
+
 
 API
-------------
+---
 .. toctree::
    :maxdepth: 1
 
