@@ -27,6 +27,7 @@ endif
 	@poetry check --no-ansi --quiet
 	@echo "✅ Poetry is installed"
 	@echo "💡 Using Python $(PYTHON_SHELL_VERSION)"
+	@poetry config virtualenvs.prefer-active-python true
 	@poetry config virtualenvs.in-project true
 	@poetry config virtualenvs.create true
 	@poetry self add "poetry-dynamic-versioning[plugin]"
