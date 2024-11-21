@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "python-project"
+packages = [{include = "libs"}]
 version = "0.0.0"
 description = ""
 authors = ["Benjamin Roland <benjamin.roland@hotmail.fr>"]
 license = "BSD-3-Clause"
 readme = "README.md"
-homepage = "https://github.com/Parici75"
+homepage = "https://github.com/Parici75/python-poetry-bootstrap"
 documentation = "https://github.com/Parici75/python-poetry-bootstrap"
+
 
 [tool.poetry.dependencies]
 python = "3.11.5"
@@ -28,6 +30,7 @@ sphinx = "^7.2.6"
 furo = "^2023.5.20"
 myst-parser = "^2.0.0"
 myst-nb = "^1.1.0"
+
 
 [tool.poetry-dynamic-versioning]
 enable = true
