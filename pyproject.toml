@@ -1,18 +1,27 @@
-[tool.poetry]
+[project]
 name = "python-project"
-packages = [{include = "libs"}]
 version = "0.0.0"
 description = ""
-authors = ["Benjamin Roland <benjamin.roland@hotmail.fr>"]
+authors = [{ name = "Benjamin Roland", email = "benjamin.roland@hotmail.fr" }]
 license = "BSD-3-Clause"
 readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.urls]
 homepage = "https://github.com/Parici75/python-poetry-bootstrap"
 documentation = "https://github.com/Parici75/python-poetry-bootstrap"
 
 
-[tool.poetry.dependencies]
-python = ">=3.11"
+# Build system
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
 
+
+# Tools
+[tool.poetry]
+packages = [{include = "libs", from = "src" }]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
@@ -32,26 +41,18 @@ furo = "^2023.5.20"
 myst-parser = "^2.0.0"
 myst-nb = "^1.1.0"
 
-
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
 style = "semver"
 pattern  = "^(?P<base>\\d+\\.\\d+\\.\\d+)(-?((?P<stage>[a-zA-Z]+)\\.?(?P<revision>\\d+)?))?"
 
-[build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
-
-## Tools
 [tool.black]
-target-version = ['py311']
 line-length = 100
 preview = true
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
 [tool.ruff.lint]
 select = [
     "E",  # pycodestyle errors
@@ -78,7 +79,6 @@ profile = "black"
 sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
 
 [tool.mypy]
-python_version = "3.11"
 exclude = ["tests"]
 
 cache_dir = ".mypy_cache/strict"

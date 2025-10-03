@@ -7,26 +7,26 @@ This repository contains the backbone, configuration and `make` targets to set u
 For additional context, read the accompanying [blog post](https://benjaminroland.onrender.com/coding&data/migrating-to-poetry).
 
 ## 🚦 Requirements
-Make sure you have Poetry installed on your system (see [instruction](https://python-poetry.org/docs/#installing-with-the-official-installer)).
+Make sure you have Poetry >=2.0 installed on your system (see [instruction](https://python-poetry.org/docs/#installing-with-the-official-installer)).
 
 Then, assuming you have a Unix shell with `make`, use the following target to set up a new Poetry-managed replicable environment for your project :
 ```bash
 make init
 ```
 
-## 👷 CI/CD tools we use
+## 👷 CI/CD tools
 - 🚀 Package management tool: [Poetry](https://python-poetry.org/docs/)
 - 🎭 Code formatting: [Black](https://black.readthedocs.io/en/stable/index.html) and [isort](https://pycqa.github.io/isort/index.html) to tidy code and imports.
-- ✅ Code quality: [mypy](https://mypy.readthedocs.io/en/stable/), [Ruff](https://beta.ruff.rs/docs/)
+- ✅ Code quality: [mypy](https://mypy.readthedocs.io/en/stable/), [Ruff](https://docs.astral.sh/ruff/)
 - 🧪 Tests: [pytest](https://docs.pytest.org/en/latest/)
 - 📤 [pre-commit](https://pre-commit.com/) hooks
 
 
-All tools configurations are gathered on a single `pyproject.toml` TOML file.
+All tools configurations live in a single `pyproject.toml` — no scattered files.
 
 
 ## 🔖 Dynamic Versioning
-We use [poetry-dynamic-versioning](https://github.com/mtkennerly/poetry-dynamic-versioning) to enforce VCS tags as a single source of truth for project versioning.
+[poetry-dynamic-versioning](https://github.com/mtkennerly/poetry-dynamic-versioning) is used to enforce VCS tags as a single source of truth for project versioning.
 
 
 ## 📤 Pre-commit hooks
